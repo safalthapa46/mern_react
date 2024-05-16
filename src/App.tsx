@@ -1,37 +1,27 @@
 import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './layout/Header'
-import Footer from './layout/Footer'
-import Display from './components/Display'
+import Home from './Pages/Home/Home'
+import Pricing from './Pages/Pricing/Pricing'
+import Product from './Pages/Product/Product'
+import Contact from './Pages/Contact/Contact'
+import About from './Pages/About/About'
+
 
 const App = () => {
-  const handleClick=()=>{
-    console.log('i am safal')
-  }
-
-  const handleClick2=()=>{
-    console.log('i am clicked')
-  }
   return (
-    <div>
+      <BrowserRouter>
       <Header />
-      <Display
-      FirstName='safal'
-      LastName='Thapa'
-      address='kalanki'
-      age={50}
-      contact={9861595549}
-      onClick={handleClick} />
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/about' element={<About />} />
+        <Route path='/products' element={<Product />}/>
+        <Route path='/pricing' element={<Pricing />}/>
+        <Route path='/contact' element={<Contact/>}/>
 
+      </Routes>
+      </BrowserRouter>
 
-<Display
-      FirstName='safal'
-      LastName='Thapa'
-      address='kalanki'
-      age={50}
-      contact={9861595549}
-      onClick={handleClick2} />
-      <Footer />
-    </div>
   )
 }
 
