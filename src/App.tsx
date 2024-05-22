@@ -6,6 +6,7 @@ import Pricing from './Pages/Pricing/Pricing'
 import Product from './Pages/Product/Product'
 import Contact from './Pages/Contact/Contact'
 import About from './Pages/About/About'
+import SingleDetails from './Pages/Product/ProductDetails'
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/' element={<Home />}/>
         <Route path='/about' element={<About />} />
         <Route path='/products' element={<Product />}/>
+        <Route path='/products/:id' element={<SingleDetails />}/>
         <Route path='/pricing' element={<Pricing />}/>
         <Route path='/contact' element={<Contact/>}/>
 

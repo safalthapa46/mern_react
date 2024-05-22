@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 interface IProducts {
     category: string,
-    desc: string,
+    description: string,
     id: number,
     image: string,
     rating: {
@@ -43,7 +43,7 @@ const Products = () => {
                             <p className="line-clamp-1">{products.title}</p>
                             <div><span className="font-bold">Rating:</span> {products.rating.rate}, {products.rating.count}</div>
                             <p><span className="font-bold">Price:</span> {products.price}</p>
-                            <p className="line-clamp-2">{products.desc}</p>
+                            <p className="line-clamp-2">{products.description}</p>
                         </div>
                         <div>
                             <Link className="bg-red-500 text-white px-4 py-2 rounded-lg " to={`/products/${products.id}`}>
