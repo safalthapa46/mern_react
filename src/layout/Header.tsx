@@ -1,5 +1,5 @@
-import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import Button from '../component/reusable/button/button';
 
 const NavItem = [
   {
@@ -55,6 +55,19 @@ const Header = () => {
               ))
             }
           </ul>
+        </div>
+        <div className='flex gap-2 items-center'>
+          <Button
+          buttonType={"button"}
+          buttonColor={{outline :true}}
+          rounded>
+            Sign in</Button>
+
+            <Button 
+          buttonType={"button"}
+          buttonColor={{primary :true}}
+          rounded>
+            Register</Button>
         </div>
       </div>
     </nav>

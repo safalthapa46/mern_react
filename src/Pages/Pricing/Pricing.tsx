@@ -1,10 +1,18 @@
-import React from 'react'
+import { useContext, useEffect } from 'react';
+import Children1 from '../../component/childrens/children1';
+import { GlobalContext } from '../../component/context/global-context';
 
 const Pricing = () => {
+
+  const { setName } = useContext(GlobalContext);
+
+  useEffect(() => {
+    setName("This is parent Name")
+  }, [setName])
+
   return (
     <div>
-      this is pricing page
-      
+      <Children1 />
     </div>
   )
 }

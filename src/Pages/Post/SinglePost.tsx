@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import PostDetails from '../../components/Post/PostDetails'
+import PostDetails from '../../component/Post/PostDetails'
 
 const SinglePost = () => {
   const params = useParams()

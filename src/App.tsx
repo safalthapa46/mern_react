@@ -8,7 +8,7 @@ import Contact from './Pages/Contact/Contact'
 import About from './Pages/About/About'
 import SingleDetails from './Pages/Product/ProductDetails'
 import Post from './Pages/Post/Post'
-import PostDetails from './components/Post/PostDetails'
+import PostDetails from './component/Post/PostDetails'
 import SinglePost from './Pages/Post/SinglePost'
 
 
