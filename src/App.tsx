@@ -10,6 +10,8 @@ import SingleDetails from './Pages/Product/ProductDetails'
 import Post from './Pages/Post/Post'
 import PostDetails from './component/Post/PostDetails'
 import SinglePost from './Pages/Post/SinglePost'
+import Signin from './Pages/signin/Signin'
+import Register from './Pages/register/Register'
 
 
 const App = () => {
@@ -24,6 +26,8 @@ const App = () => {
         <Route path='/pricing' element={<Pricing />}/>
         <Route path='/post' element={<Post />}/>
         <Route path='/post/:id' element={<SinglePost />}/>
+        <Route path='/signin' element={<Signin />}/>
+        <Route path='/register' element={<Register />}/>
         <Route path='/contact' element={<Contact/>}/>
 
       </Routes>
