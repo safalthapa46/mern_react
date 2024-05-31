@@ -12,6 +12,8 @@ import PostDetails from './component/Post/PostDetails'
 import SinglePost from './Pages/Post/SinglePost'
 import Signin from './Pages/signin/Signin'
 import Register from './Pages/register/Register'
+import { NOTFOUND } from 'dns'
+import NotFound from './Pages/notfound/notFound'
 
 
 const App = () => {
@@ -20,6 +22,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Home />}/>
+        <Route path='*' element={<NotFound />}/>
         <Route path='/about' element={<About />} />
         <Route path='/products' element={<Product />}/>
         <Route path='/products/:id' element={<SingleDetails />}/>
