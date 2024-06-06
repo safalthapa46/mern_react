@@ -1,54 +1,67 @@
-
+import { useRef } from 'react';
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-
+import 'swiper/css/navigation';
 
 // import required modules
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const Slides = [
-    {
-        img: "https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S1_2560x1440-d9ca2c0fbaff9d80e8dedfbd726aa438"
-    },
-    {
-        img: "https://assetsio.gnwcdn.com/valorant-jett-and-phoenix-wallpaper-b.jpg?width=1200&height=630&fit=crop&enable=upscale&auto=webp"
-    },
-    {
-        img: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/bltc655d62fc92e4acd/649bdd9094be10f2698941ed/071123_Val_EP7_China_CG_Banner.jpg?auto=webp&disable=upscale&height=549"
-    },
-    {
-        img: "https://www.alucare.fr/wp-content/uploads/2023/11/Valorant.jpg"
-    },
+  {
+    img: "https://media.istockphoto.com/id/1488294044/photo/businessman-works-on-laptop-showing-business-analytics-dashboard-with-charts-metrics-and-kpi.webp?b=1&s=170667a&w=0&k=20&c=BNF7gZ3XmCEf0_H8bUb6TLOvrDPVOmrEzbuu8FZrOao="
+  },
+  {
+    img: "https://media.istockphoto.com/id/1488294044/photo/businessman-works-on-laptop-showing-business-analytics-dashboard-with-charts-metrics-and-kpi.webp?b=1&s=170667a&w=0&k=20&c=BNF7gZ3XmCEf0_H8bUb6TLOvrDPVOmrEzbuu8FZrOao="
+  },
+  {
+    img: "https://media.istockphoto.com/id/1488294044/photo/businessman-works-on-laptop-showing-business-analytics-dashboard-with-charts-metrics-and-kpi.webp?b=1&s=170667a&w=0&k=20&c=BNF7gZ3XmCEf0_H8bUb6TLOvrDPVOmrEzbuu8FZrOao="
+  },
+  {
+    img: "https://media.istockphoto.com/id/1488294044/photo/businessman-works-on-laptop-showing-business-analytics-dashboard-with-charts-metrics-and-kpi.webp?b=1&s=170667a&w=0&k=20&c=BNF7gZ3XmCEf0_H8bUb6TLOvrDPVOmrEzbuu8FZrOao="
+  },
 ]
 
 export default function SwiperSlider() {
-    return (
-        <>
-            <Swiper
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
-                direction={'vertical'}
-                pagination={{
-                    clickable: true,
-
-                }}
-                modules={[Pagination, Navigation, Autoplay]}
-                className="mySwiper h-[calc(100vh-80px)]"
-            >
-                {
-                    Slides.map((slide, idx) => (
-                        <SwiperSlide key={idx}>
-                            <img src={slide.img} className='w-full' alt='...' />
-                        </SwiperSlide>
-                    ))
-                }
-            </Swiper>
-        </>
-    );
+  const progressCircle = useRef<any>(null);
+  const progressContent = useRef<any>(null);
+  const onAutoplayTimeLeft = (s: any, time: any, progress: any) => {
+    progressCircle.current.style.setProperty('--progress', 1 - progress);
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  };
+  return (
+    <>
+      <Swiper
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        onAutoplayTimeLeft={onAutoplayTimeLeft}
+        className="mySwiper h-[calc(100vh-80px)]"
+      >
+        {
+          Slides.map((slide, idx) => (
+            <SwiperSlide key={idx}>
+              <img src={slide.img} className="w-full" alt="..." />
+            </SwiperSlide>
+          ))
+        }
+        <div className="autoplay-progress" slot="container-end">
+          <svg viewBox="0 0 48 48" ref={progressCircle}>
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span ref={progressContent}></span>
+        </div>
+      </Swiper>
+    </>
+  );
 }
